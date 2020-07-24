@@ -30,6 +30,7 @@ public class UserDaoImpl {
 		@Override
 		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 			User user = new User();
+			user.setId(rs.getInt("id"));
 			user.setUsername(rs.getString("username"));
 			user.setEmail(rs.getString("email"));
 
@@ -38,13 +39,13 @@ public class UserDaoImpl {
 	}
 
 	public List<User> getAllUser() {
-		String sql1 = "select username,email from user1";
+		String sql1 = "select id,username,email from user1";
 		//get users list from db1
 		//		SqlParameterSource parameter = new MapSqlParameterSource()
 		//				.addValue("username", username);
 		List<User> list1 = jdbcTemplate1.query(sql1, new UserRowMapper());
 
-		String sql2 = "select username,email from user2";
+		String sql2 = "select id,username,email from user2";
 		//get users list from db2
 		List<User> list2 = jdbcTemplate2.query(sql2, new UserRowMapper());
 

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>SpringBoot</title>
+</head>
+<body>
+	<div
+		style="width: 500px; height: 200px; position: fixed; top: 20%; left: 30%; margin-top: -100px; margin-left: -100px;">
+		<h1>Users</h1>
+		<hr />
+		<div th:each="user : ${users}">
+			<h2>
+				UserId: <span th:text="${user.id}">id</span>
+			</h2>
+			<h2>
+				UserName: <span th:text="${user.username}">username</span>
+			</h2>
+			<h2>
+				Email: <span th:text="${user.email}">email</span>
+			</h2>
+		</div>
+	</div>
+</body>
+</html>
